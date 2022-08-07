@@ -4,7 +4,7 @@ import re
 ip_address = re.compile(r'''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
             25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
             25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
-            25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\([0-9]|[1-2][0-9]|3[0-1])$''')
+            25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\/([0-9]|[1-2][0-9]|3[0-1])$''')
 
 # check if the input is an ip adress
 def ip_address_valid(check):    
@@ -13,14 +13,11 @@ def ip_address_valid(check):
     return False
 user_input = input("Enter an Ip address: ")
 #print(mask_index)
-if "\\" in user_input :
-    mask_index = user_input.index('\\')
-    #check = re.fullmatch(ip_address, user_input[:mask_index])
-    check = re.fullmatch(ip_address, user_input)
 
+mask_index = user_input.index('/')
+#check = re.fullmatch(ip_address, user_input[:mask_index])
+check = re.fullmatch(ip_address, user_input)
 
-else :
-    check = re.fullmatch(ip_address, user_input)
 
 
 first_group = int(user_input[:user_input.index(".")])
@@ -64,3 +61,4 @@ if ip_address_valid(check) :
     print(f"Class: {the_class}, Designation: {designation}")
 else :
     print("You wrote a wrong Ip address or mask.")
+
