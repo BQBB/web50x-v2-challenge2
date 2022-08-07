@@ -1,12 +1,10 @@
 import re
-from tabnanny import check
 # the ip adress validator
 
 ip_address = re.compile(r'''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
             25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
             25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
-            25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\    check = re.fullmatch(ip_address, user_input)
-$''')
+            25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\([0-9]|[1-2][0-9]|3[0-1])$''')
 
 # check if the input is an ip adress
 def ip_address_valid(check):    
@@ -17,9 +15,13 @@ user_input = input("Enter an Ip address: ")
 #print(mask_index)
 if "\\" in user_input :
     mask_index = user_input.index('\\')
+    #check = re.fullmatch(ip_address, user_input[:mask_index])
     check = re.fullmatch(ip_address, user_input)
+
+
 else :
     check = re.fullmatch(ip_address, user_input)
+
 
 first_group = int(user_input[:user_input.index(".")])
 lst = [i for i, x in enumerate(user_input) if x == "."]
@@ -56,7 +58,6 @@ def check_designation() :
         return "Special"
     else:
         return "Public"
-
 if ip_address_valid(check) :
     the_class = check_class()
     designation = check_designation()
