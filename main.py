@@ -5,7 +5,8 @@ from tabnanny import check
 ip_address = re.compile(r'''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
             25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
             25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
-            25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.([0-9]|[1-2][0-9]|3[0-1])$''')
+            25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\    check = re.fullmatch(ip_address, user_input)
+$''')
 
 # check if the input is an ip adress
 def ip_address_valid(check):    
@@ -16,7 +17,7 @@ user_input = input("Enter an Ip address: ")
 #print(mask_index)
 if "\\" in user_input :
     mask_index = user_input.index('\\')
-    check = re.fullmatch(ip_address, user_input[:mask_index])
+    check = re.fullmatch(ip_address, user_input)
 else :
     check = re.fullmatch(ip_address, user_input)
 
