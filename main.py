@@ -84,7 +84,7 @@ def solution():
             third_octet in classes['a']['special'][2]) and (
             fourth_octet in classes['a']['special'][3]):
         output['class'] = 'A'
-        output['designation'] = 'Public'
+        output['designation'] = 'Special'
 
     # Private B
     elif (first_octet in classes['b']['private'][0]) and (
