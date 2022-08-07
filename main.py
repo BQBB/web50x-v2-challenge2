@@ -29,71 +29,58 @@ for index in range(len(Ip)):
 # checking the Mask if not valied
 if ipMask > 32: raise ValueError("Invalid IP mask")
 elif ipMask < 0: raise ValueError("Invalid IP mask")
-
+# ----------------------------------------------------------------
+# class range definition
+classA = range(1,128)
+classB = range(128,192)
+classC = range(192,224)
+classE = range(224,240)
+classD = range(240,256)
 
 # ----------------------------------------------------------------
 # stage 3
 # ----------------------------------------------------------------
 # check the class 
 # ----------------------------------------------------------------
-#                 class A
-#   puplic 
-if Ip[0] >= 1 and Ip[0] <= 127 and Ip[1] == 0 and Ip[2] == 0 and Ip[3] == 0: 
-    print("class is A, Designation is public")
+typeOfClass = ""
+if Ip[0] in classA:
+    typeOfClass = "A"
+elif Ip[0] in classB:
+    typeOfClass = "B"
+elif Ip[0] in classC:
+    typeOfClass = "C"
+elif Ip[0] in classD:
+    typeOfClass = "D"
+elif Ip[0] in classE:
+    typeOfClass = "E"   
     
-#   private
-if Ip[0] >= 1 and Ip[0] <= 127: 
-    if Ip[0] == 10 :
-        if Ip[1] >= 0 and Ip[1] <= 255:
-            if Ip[2] >= 0 and Ip[2] <= 255:
-                if Ip[3] >= 0 and Ip[3] <= 255:
-                     print("class is A,Designation is private")
-                     
-#  Special         
-if Ip[0] == 127 :
-    if Ip[1] >= 0 and Ip[1] <= 255:
-        if Ip[2] >= 0 and Ip[2] <= 255:
-            if Ip[3] >= 1 and Ip[3] <= 255:
-                print("class is A,Designation is special")
-                print("---  loopback class ---")                  
 # ----------------------------------------------------------------
-#                 class B
-#   public
-if Ip[0] >= 128 and Ip[0] <= 191 : 
-    if Ip[1] >= 0 and Ip[1] <= 255 :
-        print("class is B, Designation is public")
-    
-#  private 
-if Ip[0] >= 128 and Ip[0] <= 191 :   
-    if Ip[0] == 172:
-        if Ip[1] >= 16 and Ip[1] <= 31:
-            if Ip[2] >= 0 and Ip[2] <= 255 :
-                if Ip[3] >= 0 and Ip[3] <= 255 :
-                     print("class is B, Designation is Private")
+# stage 4
 # ----------------------------------------------------------------
-#                 class c
-#   public       
-if Ip[0] >= 192 and Ip[0] <= 223 :
-    if Ip[1] >= 0 and Ip[1] <= 255 :
-        if Ip[2] >= 0 and Ip[2] <= 255 :
-            if Ip[3] == 0 :
-                print("class is C, Designation is public")
-#  private 
-if Ip[0] == 192  :
-    if Ip[1] == 168:
-        if Ip[2] >= 0 and Ip[2] <= 255 :
-            if Ip[3] >= 0 and Ip[3] <= 255:
-                 print("class is C,Designation is private")
+# check the Designation
+# ----------------------------------------------------------------
+if typeOfClass == "A" and Ip[0] == 10:  #good
+    designationType = "private"
+elif typeOfClass == "A" and Ip[0] == 127:
+   designationType = "special"
+elif typeOfClass == "A" and Ip[0] >= 1:  #good
+    designationType = "public"
+elif typeOfClass == "B" and Ip[0] == 172 and Ip[1]  >= 16 and Ip[1] <= 32: #good
+    designationType = "private"
+elif typeOfClass == "B" :     #good
+    designationType = "public"
+elif typeOfClass == "C" and Ip[0] == 192 and Ip[1] == 168:  #good
+    designationType = "Private"
+elif typeOfClass == "C" and Ip[0] != 192:   #good
+    designationType = "public"
+elif typeOfClass == "D":
+    designationType = "public"
+elif typeOfClass == "E":
+    designationType = "public"
+# ----------------------------------------------------------------
+# stage 5
+# ----------------------------------------------------------------
+# print
+# ----------------------------------------------------------------
+print(f"the class is {typeOfClass} and the designation is {designationType}")    
 
-# ----------------------------------------------------------------
-#                 class D
-#   public    
-if Ip[0] >= 224 and Ip[0] <= 239 : 
-    print("class is D, Designation is public")
-    
-# ----------------------------------------------------------------
-#                 class E
-#   public       
-if Ip[0] >= 240 and Ip[0] <= 255:
-    print("class is E, Designation is public")
-   
