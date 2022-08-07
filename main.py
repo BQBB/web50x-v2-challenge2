@@ -1,5 +1,4 @@
 def solution():
-
     # Params
     classes = {
         'a': {
@@ -87,14 +86,6 @@ def solution():
         output['class'] = 'A'
         output['designation'] = 'Public'
 
-    # Public B
-    elif (first_octet in classes['b']['public'][0]) and (
-            second_octet in classes['b']['public'][1]) and (
-            third_octet in classes['b']['public'][2]) and (
-            fourth_octet in classes['b']['public'][3]):
-        output['class'] = 'B'
-        output['designation'] = 'Public'
-
     # Private B
     elif (first_octet in classes['b']['private'][0]) and (
             second_octet in classes['b']['private'][1]) and (
@@ -103,8 +94,16 @@ def solution():
         output['class'] = 'B'
         output['designation'] = 'Private'
 
+    # Public B
+    elif (first_octet in classes['b']['public'][0]) and (
+            second_octet in classes['b']['public'][1]) and (
+            third_octet in classes['b']['public'][2]) and (
+            fourth_octet in classes['b']['public'][3]):
+        output['class'] = 'B'
+        output['designation'] = 'Public'
+
     # Private C
-    elif(first_octet in classes['c']['private'][0]) and (
+    elif (first_octet in classes['c']['private'][0]) and (
             second_octet in classes['c']['private'][1]) and (
             third_octet in classes['c']['private'][2]) and (
             fourth_octet in classes['c']['private'][3]):
