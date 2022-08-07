@@ -35,6 +35,8 @@ def check_class() :
         ip_class = 'C'
     elif first_group < 240 :
         ip_class = 'D'
+    elif first_group < 239 :
+        ip_class = 'E'
     return ip_class
 the_class = check_class()
 # function that checks the ip designation
@@ -49,6 +51,8 @@ def check_designation() :
         return "Private"
     elif the_class =="D" :
         return "Multicast"
+    elif the_class == "E":
+        return "Special"
     else:
         return "Public"
 
