@@ -26,7 +26,7 @@ def ClassC(n1,n2):
         print("Class:C, Designation: Private")
     else:
         print("Class:C, Designation: Public") 
-#main code
+#checking
 for n in x:
     if n < 0 or n > 255:
         v = 2
@@ -34,6 +34,7 @@ if y[1] < 0 or y[1] > 32:
     v = 3
 if len(x) != 4:
     v = 4
+#main code
 if v == 2:
     print("Invalid octal, must be between 0-255")
 elif v == 3:
