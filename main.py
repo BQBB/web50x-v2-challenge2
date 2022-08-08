@@ -77,6 +77,8 @@ elif typeOfClass == "D":
     designationType = "public"
 elif typeOfClass == "E":
     designationType = "public"
+else:
+    designationType = "public"
 # ----------------------------------------------------------------
 # stage 5
 # ----------------------------------------------------------------
