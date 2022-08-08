@@ -28,14 +28,14 @@ def solution():
         print("Class A, Designation special")
     elif octets[0] in range(1, 126):
         print("Class A, Designation public")
-    elif octets[0] in range(172, 173):
+    elif octets[0] in range(172, 173) and octets[1] in range(16, 32):
         print("Class B, Designation private")
     elif octets[0] in range(128, 192):
         print("Class B, Designation public")
     elif octets[0] in range(192, 193):
         print("Class C, Designation private")
     elif octets[0] in range(192, 224):
-        print("Class C, Designation special")
+        print("Class C, Designation public")
     elif octets[0] in range(224, 240):
         print("Class D, Designation private")
     elif octets[0] in range(240, 255):
