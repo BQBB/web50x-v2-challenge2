@@ -47,7 +47,7 @@ elif oct1 >= 240 and oct1 <= 255:
 
 # designation section
 if ip_class == "A":
-    if oct1 == 127 and oct2 == 0 and oct3 == 0 and oct4 == 1:
+    if oct1 == 127:
         ip_designation = "special"
     elif oct1 == 10:
         ip_designation = "private"
