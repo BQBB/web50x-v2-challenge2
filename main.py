@@ -3,27 +3,27 @@ def solution():
     classes = {
         'a': {
             'public': [range(1, 127), range(0, 256), range(0, 256), range(1, 255)],
-            'private': [range(10, 11), range(0, 256), range(0, 256), range(0, 256)],
+            'private': [range(10, 11), range(0, 256), range(0, 256), range(1, 255)],
             'special': [range(127, 128), range(0, 256), range(0, 256), range(1, 256)]
         },
         'b': {
             'public': [range(128, 192), range(1, 256), range(0, 256), range(1, 255)],
-            'private': [range(172, 173), range(16, 32), range(0, 256), range(0, 256)],
+            'private': [range(172, 173), range(16, 32), range(0, 256), range(1, 255)],
             'special': None
         },
         'c': {
             'public': [range(192, 224), range(0, 256), range(1, 255), range(1, 255)],
-            'private': [range(192, 193), range(168, 169), range(0, 256), range(0, 256)],
+            'private': [range(192, 193), range(168, 169), range(0, 256), range(1, 255)],
             'special': None
         },
         'd': {
-            'public': [range(224, 240), range(0, 256), range(0, 256), range(0, 256)],
-            'private': None,
+            'public': None,
+            'private': [range(224, 240), range(0, 256), range(0, 256), range(1, 255)],
             'special': None
         },
         'e': {
-            'public': [range(240, 255), range(0, 256), range(0, 256), range(0, 255)],
-            'private': None,
+            'public': None,
+            'private': [range(240, 255), range(0, 256), range(0, 256), range(1, 255)],
             'special': None
         }
     }
@@ -124,7 +124,7 @@ def solution():
             third_octet in classes['d']['public'][2]) and (
             fourth_octet in classes['d']['public'][3]):
         output['class'] = 'D'
-        output['designation'] = 'Public'
+        output['designation'] = 'Private'
 
     # Class E
     elif (first_octet in classes['e']['public'][0]) and (
@@ -132,7 +132,7 @@ def solution():
             third_octet in classes['e']['public'][2]) and (
             fourth_octet in classes['e']['public'][3]):
         output['class'] = 'E'
-        output['designation'] = 'Public'
+        output['designation'] = 'Private'
 
     return output
     pass
